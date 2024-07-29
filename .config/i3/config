@@ -136,6 +136,12 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# move workspaces between monitors
+bindsym $mod+Right move workspace to output right
+bindsym $mod+Left move workspace to output left
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Down move workspace to output down
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -222,7 +228,7 @@ client.background        $base
 # nothing atm
 
 # borders
-default_border pixel 2
+default_border pixel 3
 gaps outer 5
 gaps inner 15
 
@@ -246,4 +252,4 @@ bar {
 }
 
 # picom
-exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --experimental-backends --xrender-sync-fence --config ~/.config/picom/picom.conf
