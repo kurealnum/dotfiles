@@ -35,7 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Start other 2 monitors, set wallpaper, and set main monitor as primary monitor
-exec --no-startup-id xrandr --output DP-0 --above HDMI-0 && xrandr --output DP-2 --right-of HDMI-0 && feh --bg-scale ~/.config/nvim/wallpapers/streetsig.jpg
+exec --no-startup-id xrandr --output DP-0 --above HDMI-0 && xrandr --output DP-2 --right-of HDMI-0 && feh --bg-scale ~/wallpapers/streetsig.jpg
 exec --no-startup-id xrandr --output DP-2 --primary
 
 
@@ -188,6 +188,9 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Take a screenshot
+bindsym Print exec flameshot gui
+
 # colors (from catpuccin mocha)
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
@@ -253,3 +256,7 @@ bar {
 
 # picom
 exec_always --no-startup-id picom --experimental-backends --xrender-sync-fence --config ~/.config/picom/picom.conf
+
+# autostart applications
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/local/bin/firefox-developer'
+exec --no-startup-id i3-msg 'workspace 1; exec kitty'

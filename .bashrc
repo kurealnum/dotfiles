@@ -133,3 +133,5 @@ export NVM_DIR="$HOME/.nvm"
 # REPLACEMENT_VALUE=$(echo $UNESCAPED | sed 's;/;\\/;g')
 # sed -i "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/" $CONFIG_FILE
 . "$HOME/.cargo/env"
+
+export PATH=$PATH:/home/oscar/.spicetify
