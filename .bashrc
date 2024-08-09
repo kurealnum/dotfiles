@@ -131,6 +131,5 @@ export NVM_DIR="$HOME/.nvm"
 # UNESCAPED="${WALLPAPER_PATH}$(ls ~/wallpapers | sort -R | tail -$N | shuf -n 1)"
 # REPLACEMENT_VALUE=$(echo $UNESCAPED | sed 's;/;\\/;g')
 # sed -i "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/" $CONFIG_FILE
-
 export PATH=$PATH:/home/oscar/.spicetify
 alias config='/usr/bin/git --git-dir=/home/oscar/.cfg/ --work-tree=/home/oscar'
