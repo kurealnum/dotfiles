@@ -36,6 +36,7 @@ exec --no-startup-id nm-applet
 
 # Start other 2 monitors, set wallpaper, and set main monitor as primary monitor
 exec --no-startup-id xrandr --output DP-1 --above HDMI-1 && xrandr --output DP-2 --right-of HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
+# exec --no-startup-id xrandr --output HDMI-1 --left-of DP-2 && xrandr --output DP-1 --above HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
 exec --no-startup-id xrandr --output DP-2 --primary
 
 
@@ -257,8 +258,8 @@ bar {
 # picom
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
-# automatically "move" workspaces around
-exec exec --no-startup-id xset s 0 0
+# disable screen turning off
+exec_always --no-startup-id xset s 0 0
 
 # autostart applications
 exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/firefox-developer-edition'
