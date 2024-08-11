@@ -8,7 +8,8 @@ font_size 11
 background_opacity 0.83
 confirm_os_window_close 0 
 
-startup_session ~/.config/kitty/kittysession.conf
+
+
 
 # vim:ft=kitty
 
@@ -63,6 +64,6 @@ startup_session ~/.config/kitty/kittysession.conf
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Adventure Time
 include current-theme.conf
 # END_KITTY_THEME

@@ -1,0 +1,48 @@
+#
+# prezto - mimic the default prezto prompt (sorin)
+#
+
+add_newline = false
+
+# A minimal left prompt
+format = """$python$directory$character$status$git_branch$git_status"""
+
+[character]
+success_symbol = "[❯](red)[❯](yellow)[❯](green)"
+error_symbol = "[❯](red)[❯](yellow)[❯](green)"
+vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
+
+[git_branch]
+format = '[$branch]($style) '
+style = 'bold green'
+
+[python]
+format = '[(\($virtualenv\) )]($style)'
+style = 'white'
+
+[git_status]
+format = '$all_status$ahead_behind '
+ahead = '[⬆](bold purple) '
+behind = '[⬇](bold purple) '
+staged = '[✚](green) '
+deleted = '[✖](red) '
+renamed = '[➜](purple) '
+stashed = '[✭](cyan) '
+untracked = '[◼](white) '
+modified = '[✱](blue) '
+conflicted = '[═](yellow) '
+diverged = '⇕ '
+up_to_date = ''
+
+[directory]
+style = "cyan"
+
+[cmd_duration]
+format = '[$duration]($style) '
+
+[line_break]
+disabled = true
+
+[status]
+disabled = false
+symbol = '✘ '
