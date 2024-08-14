@@ -119,6 +119,7 @@ fi
 # custom aliases
 alias py='python3'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias drma='docker rm -fv $(docker ps -qa)'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
