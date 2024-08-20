@@ -13,12 +13,12 @@ This is heavily inspired by (or should I say 30% copied from) [this rice.](https
 - feh
 - lxappearance
 - flameshot
-- Arc-Dark (GTK theme)
-- Papirus-Dark (GTK icon theme)
-- picom ([this fork](https://github.com/jonaburg/picom/tree/next))
+- rose-pine-gtk
+- picom
 
 There are likely more requirements that I'm forgetting about.
 
 ## General info
-- Using pipewire and pavucontrol for audio management 
+
+- Using pipewire and pavucontrol for audio management
 - Using nmtui for network control
