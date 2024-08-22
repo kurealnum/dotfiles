@@ -408,6 +408,10 @@
     summary = "spotify"
     skip_display = yes
 
+[skip-display]
+    summary = "zoom"
+    skip_display = yes
+
 #[signed_on]
 #    appname = Pidgin
 #    summary = "*signed on*"
