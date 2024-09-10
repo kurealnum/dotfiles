@@ -6,7 +6,7 @@ This is heavily inspired by (or should I say 30% copied from) [this rice.](https
 
 - NerdFonts
 - FiraCode Nerd Fonts
-- Proxima Nova (font)
+- JetBrains Mono (font)
 - i3
 - kitty (terminal)
 - dunst
