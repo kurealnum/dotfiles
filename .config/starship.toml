@@ -1,48 +1,50 @@
-#
-# prezto - mimic the default prezto prompt (sorin)
-#
-
+format = "$directory $character$username $fill $time\n [󱞪](fg:iris) "
+palette = "rose-pine-moon"
 add_newline = false
 
-# A minimal left prompt
-format = """$python$directory$character$status$git_branch$git_status"""
-
-[character]
-success_symbol = "[❯](red)[❯](yellow)[❯](green)"
-error_symbol = "[❯](red)[❯](yellow)[❯](green)"
-vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
-
-[git_branch]
-format = '[$branch]($style) '
-style = 'bold green'
-
-[python]
-format = '[(\($virtualenv\) )]($style)'
-style = 'white'
-
-[git_status]
-format = '$all_status$ahead_behind '
-ahead = '[⬆](bold purple) '
-behind = '[⬇](bold purple) '
-staged = '[✚](green) '
-deleted = '[✖](red) '
-renamed = '[➜](purple) '
-stashed = '[✭](cyan) '
-untracked = '[◼](white) '
-modified = '[✱](blue) '
-conflicted = '[═](yellow) '
-diverged = '⇕ '
-up_to_date = ''
+[palettes.rose-pine-moon]
+overlay = '#393552'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ea9a97'
+pine = '#3e8fb0'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
 
 [directory]
-style = "cyan"
+format = "(fg:overlay)[$path]($style)(fg:overlay)"
+style = "fg:foam"
+truncation_length = 3
+truncation_symbol = ""
 
-[cmd_duration]
-format = '[$duration]($style) '
+[character]
+success_symbol = "[❯](love)[❯](gold)[❯](rose)"
 
-[line_break]
-disabled = true
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
 
-[status]
+[fill]
+style = "fg:overlay"
+symbol = " "
+
+[git_branch]
+format = "(fg:overlay)[$symbol $branch ]($style)(fg:overlay)"
+style = "fg:foam"
+symbol = ""
+
+[time]
 disabled = false
-symbol = '✘ '
+format = "(fg:overlay)[ $time 󰴈 ]($style)(fg:overlay)"
+style = "fg:rose"
+time_format = "%H:%M"
+use_12hr = false
+
+[username]
+disabled = false
+format = "(fg:overlay)[󰧱 $user]($style)(fg:overlay)"
+show_always = true
+style_root = "fg:iris"
+style_user = "fg:iris"
