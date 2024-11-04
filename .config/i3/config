@@ -35,7 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Start other 2 monitors, set wallpaper, and set main monitor as primary monitor
-exec --no-startup-id xrandr --output DP-1 --above HDMI-1 && xrandr --output DP-2 --right-of HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
+exec --no-startup-id xrandr --output DP-1 --above HDMI-1 && xrandr --output DP-2 --right-of HDMI-1 && feh --bg-scale ~/wallpapers/girlsitting.jpg
 # exec --no-startup-id xrandr --output HDMI-1 --left-of DP-2 && xrandr --output DP-1 --above HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
 exec --no-startup-id xrandr --output DP-2 --primary
 
@@ -57,7 +57,7 @@ bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+Shift+v kill
 
 # start rofi
-bindsym $mod+d exec --no-startup-id rofi -show drun -font 'Proxima Nova 12'
+bindsym $mod+d exec --no-startup-id rofi -show drun -font 'Hack 11'
 
 # open power menu
 bindsym $mod+m exec ~/.config/i3/scripts/powermenu
@@ -259,8 +259,8 @@ client.background        $base
 
 # borders
 default_border pixel 3
-gaps outer 5
-gaps inner 15
+gaps outer 3
+gaps inner 8 
 
 # bar (completely yoinked from https://github.com/jifuwater/Cattendeavour/blob/main/i3/config)
 bar {
@@ -288,5 +288,7 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id xset s 0 0
 
 # autostart applications
-exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/firefox-developer-edition'
-exec --no-startup-id i3-msg 'workspace 1; exec kitty'
+exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox-developer-edition'
+exec --no-startup-id i3-msg 'workspace 3; exec kitty -d ~/Code/WebDev/noai-blog/ --hold sh -c ". env/bin/activate && nvim"'
+exec --no-startup-id i3-msg 'workspace 4; exec kitty -d ~/Code/WebDev/noai-blog/ --hold sh -c "docker compose up -w --build"'
+exec --no-startup-id i3-msg 'workspace 4; exec kitty -d ~/Code/WebDev/noai-blog/'

@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-a=1
+a=0
 
 path=~/.config/i3/scripts/miei/ora.sh
 
