@@ -1,0 +1,5 @@
+set highlight-active-color "#ffffff"
+set highlight-transparency 1
+set default-bg rgba(0,0,0,0.7)
+set recolor-lightcolor rgba(0,0,0,0)
+set guioptions "none"
