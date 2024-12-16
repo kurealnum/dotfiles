@@ -121,7 +121,7 @@ alias py='python3'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias drma='docker rm -fv $(docker ps -qa)'
 alias customscreenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
-alias notes="cd /media/1TB/DualBootFiles/Obsidian\ Notes/ && nvim"
+alias notes="cd ~/obsidian-notes/ && nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
