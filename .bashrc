@@ -122,6 +122,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias drma='docker rm -fv $(docker ps -qa)'
 alias customscreenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
 alias notes="cd ~/obsidian-notes/ && nvim"
+alias encode=". /home/oscar/.config/scripts/encode.sh"
+alias settablet="xsetwacom --set \"15\" MapToOutput HEAD-1"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
