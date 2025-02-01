@@ -20,6 +20,7 @@ This is heavily inspired by (or should I say 30% copied from) [this rice.](https
 - rose-pine-gtk
 - picom
 - nnn (not that, the file manager)
+- redshift
 
 There are likely more requirements that I'm forgetting about.
 
