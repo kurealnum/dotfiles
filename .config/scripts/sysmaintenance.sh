@@ -1,22 +1,50 @@
-# This code is almost entirely taken from Mr. Cejas's blog: https://fernandocejas.com/blog/engineering/2022-03-30-arch-linux-system-maintance/
-echo "Updating system"
+# References: Fernando Cejas (https://fernandocejas.com/blog/engineering/2022-03-30-arch-linux-system-maintance/)
+echo "----------------------------------------------------"
+echo "UPDATING SYSTEM"
+echo "----------------------------------------------------"
+
 yay -Syu
 
-echo "Clearing pacman cache"
+echo ""
+echo "----------------------------------------------------"
+echo "CLEARING PACMAN CACHE"
+echo "----------------------------------------------------"
+
 pacman_cache_space_used="$(du -sh /var/cache/pacman/pkg/)"
-paccache -r 
-echo "Space saved: $pacman_cache_space_used" 
+echo "Space currently in use: $pacman_cache_space_used"
+echo ""
+echo "Clearing Cache, leaving newest 2 versions:"
+paccache -vrk2
+echo ""
+echo "Clearing all uninstalled packages:"
+paccache -ruk0
 
-echo "Removing orphan packages"
-yay -Qdtq | yay -Rns -
+echo ""
+echo "----------------------------------------------------"
+echo "REMOVING ORPHANED PACKAGES"
+echo "----------------------------------------------------"
 
-echo "Clearing ~/.cache"
+orphaned=$(yay -Qdtq)
+if [ -n "$orphaned" ]; then
+    echo "$orphaned" | yay -Rns -
+else
+    echo "No orphaned packages to remove."
+fi
+
+echo ""
+echo "----------------------------------------------------"
+echo "CLEARING HOME CACHE"
+echo "----------------------------------------------------"
+
 home_cache_used="$(du -sh ~/.cache)"
 rm -rf ~/.cache/
+echo "Clearing ~/.cache/..."
 echo "Spaced saved: $home_cache_used"
 
-echo "Clearing system logs"
+echo ""
+echo "----------------------------------------------------"
+echo "CLEARING SYSTEM LOGS"
+echo "----------------------------------------------------"
+
 journalctl --vacuum-time=7d
-
-
-
+echo ""
