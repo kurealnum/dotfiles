@@ -35,9 +35,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Start other 2 monitors, set wallpaper, and set main monitor as primary monitor
-exec --no-startup-id xrandr --output DP-1 --above HDMI-1 && xrandr --output DP-2 --right-of HDMI-1 && feh --bg-scale ~/wallpapers/girlsitting.jpg
-# exec --no-startup-id xrandr --output HDMI-1 --left-of DP-2 && xrandr --output DP-1 --above HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
-exec --no-startup-id xrandr --output DP-2 --primary
+exec --no-startup-id xrandr --output DP-4 --mode 1920x1080 --rate 165 && xrandr --output DP-4 --left-of DP-2 && xrandr --output DP-0 --above DP-4 && feh --bg-scale ~/wallpapers/nature2.jpg
+# # exec --no-startup-id xrandr --output HDMI-1 --left-of DP-2 && xrandr --output DP-1 --above HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
+# exec --no-startup-id xrandr --output DP-2 --primary
 
 
 # Set background
@@ -46,6 +46,9 @@ exec --no-startup-id xrandr --output DP-2 --primary
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# set wallpaper to default wallpaper
+bindsym $mod+Shift+s exec feh --bg-scale ~/wallpapers/streetsig.jpg
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -192,103 +195,130 @@ bindsym XF86AudioPrev exec playerctl previous
 # Take a screenshot
 bindsym Print exec flameshot gui
 
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+# Green gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $green $green $darkgray $purple $green
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
 # colors (from catpuccin mocha)
-set $rosewater #f5e0dc
-set $flamingo #f2cdcd
-set $pink #f5c2e7
-set $mauve #cba6f7
-set $red #f38ba8
-set $maroon #eba0ac
-set $peach #fab387
-set $yellow #f9e2af
-set $green #a6e3a1
-set $teal #94e2d5
-set $sky #89dceb
-set $sapphire #74c7ec
-set $blue #89b4fa
-set $lavender #b4befe
-set $text #cdd6f4
-set $subtext1 #bac2de
-set $subtext0 #a6adc8
-set $overlay2 #9399b2
-set $overlay1 #7f849c
-set $overlay0 #6c7086
-set $surface2 #585b70
-set $surface1 #45475a
-set $surface0 #313244
-set $base #1e1e2e
-set $mantle #181825
-set $crust #11111b
+# set $rosewater #f5e0dc
+# set $flamingo #f2cdcd
+# set $pink #f5c2e7
+# set $mauve #cba6f7
+# set $red #f38ba8
+# set $maroon #eba0ac
+# set $peach #fab387
+# set $yellow #f9e2af
+# set $green #a6e3a1
+# set $teal #94e2d5
+# set $sky #89dceb
+# set $sapphire #74c7ec
+# set $blue #89b4fa
+# set $lavender #b4befe
+# set $text #cdd6f4
+# set $subtext1 #bac2de
+# set $subtext0 #a6adc8
+# set $overlay2 #9399b2
+# set $overlay1 #7f849c
+# set $overlay0 #6c7086
+# set $surface2 #585b70
+# set $surface1 #45475a
+# set $surface0 #313244
+# set $base #1e1e2e
+# set $mantle #181825
+# set $crust #11111b
 
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $lavender  $lavender
-client.focused_inactive  $overlay0 $base $text  $overlay0  $overlay0
-client.unfocused         $overlay0 $base $text  $overlay0  $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
+# client.focused           $lavender $base $text  $lavender  $lavender
+# client.focused_inactive  $overlay0 $base $text  $overlay0  $overlay0
+# client.unfocused         $overlay0 $base $text  $overlay0  $overlay0
+# client.urgent            $peach    $base $peach $overlay0  $peach
+# client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+# client.background        $base
 
 # set primary Rosé Pine colorscheme colors
-set $base           #191724
-set $surface        #1f1d2e
-set $overlay        #26233a
-set $muted          #6e6a86
-set $subtle         #908caa
-set $text           #e0def4
-set $love           #eb6f92
-set $gold           #f6c177
-set $rose           #ebbcba
-set $pine           #31748f
-set $foam           #9ccfd8
-set $iris           #c4a7e7
-set $highlightlow   #21202e
-set $highlightmed   #403d52
-set $highlighthigh  #524f67
-
+# set $base           #191724
+# set $surface        #1f1d2e
+# set $overlay        #26233a
+# set $muted          #6e6a86
+# set $subtle         #908caa
+# set $text           #e0def4
+# set $love           #eb6f92
+# set $gold           #f6c177
+# set $rose           #ebbcba
+# set $pine           #31748f
+# set $foam           #9ccfd8
+# set $iris           #c4a7e7
+# set $highlightlow   #21202e
+# set $highlightmed   #403d52
+# set $highlighthigh  #524f67
+#
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $rose     $base $text  $rose      $rose
-client.focused_inactive  $text     $base $text  $overlay $surface
-client.unfocused         $text     $base $text  $overlay   $overlay
-client.urgent            $text     $base $text  $love      $love
-client.placeholder       $base     $base $text  $overlay   $overlay
-client.background        $base
+# client.focused           $rose     $base $text  $rose      $rose
+# client.focused_inactive  $text     $base $text  $overlay $surface
+# client.unfocused         $text     $base $text  $overlay   $overlay
+# client.urgent            $text     $base $text  $love      $love
+# client.placeholder       $base     $base $text  $overlay   $overlay
+# client.background        $base
 
 # disables title bar
 # nothing atm
 
 # borders
-default_border pixel 3
+default_border pixel 2
 gaps outer 3
-gaps inner 8 
+gaps inner 6
 
 # bar (completely yoinked from https://github.com/jifuwater/Cattendeavour/blob/main/i3/config)
 bar {
-	font pango: FiraCode Nerd Font medium 10
+	font pango: FiraCode Nerd Font medium 13
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position bottom
     i3bar_command i3bar --transparency
-    colors {
-		    separator          $pink
-		  #  background         $darkgrey
-		    background	#1e1e2eD9
-		    statusline         $pink
-#                          		border 		        bg		txt	
-		focused_workspace	#1e1e2eD9		#1e1e2eD9	#b4befe 	
-		active_workspace	#1e1e2eD9	      	#1e1e2eD9 	#a6adc8		
-		inactive_workspace	#1e1e2eD9 		#1e1e2eD9	#7f849c		
-		urgent_workspace	#1e1e2eD9    		#1e1e2eD9  	#a6e3a1  	
-	}
+#     colors {
+# 		    separator          $pink
+# 		  #  background         $darkgrey
+# 		    background	#1e1e2eD9
+# 		    statusline         $pink
+# #                          		border 		        bg		txt	
+# 		focused_workspace	#1e1e2eD9		#1e1e2eD9	#b4befe 	
+# 		active_workspace	#1e1e2eD9	      	#1e1e2eD9 	#a6adc8		
+# 		inactive_workspace	#1e1e2eD9 		#1e1e2eD9	#7f849c		
+# 		urgent_workspace	#1e1e2eD9    		#1e1e2eD9  	#a6e3a1  	
+# 	}
+        colors {
+        # bar background color
+        background $bg
+        # text color used for blocks that do not have a color specified.
+        statusline $yellow
+        # workspaces section            
+        #                    border  backgr. text
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $bg $bg $yellow
+        active_workspace     $bg $bg $yellow
+        urgent_workspace     $red $red $bg
+    }
 }
 
 # picom
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --xrender-sync-fence
 
 # disable screen turning off
 exec_always --no-startup-id xset s 0 0
 
 # autostart applications
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox-developer-edition'
-exec --no-startup-id i3-msg 'workspace 3; exec kitty -d ~/Code/WebDev/noai-blog/ --hold sh -c ". env/bin/activate && nvim"'
-exec --no-startup-id i3-msg 'workspace 4; exec kitty -d ~/Code/WebDev/noai-blog/ --hold sh -c "docker compose up -w --build"'
-exec --no-startup-id i3-msg 'workspace 4; exec kitty -d ~/Code/WebDev/noai-blog/'

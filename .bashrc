@@ -121,9 +121,17 @@ alias py='python3'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias drma='docker rm -fv $(docker ps -qa)'
 alias customscreenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
-alias notes="cd ~/obsidian-notes/ && nvim"
+alias notes="cd ~/notes/ && nvim"
 alias encode=". /home/oscar/.config/scripts/encode.sh"
-alias settablet="xsetwacom --set \"15\" MapToOutput HEAD-1"
+alias settablet="xsetwacom --set \"15\" MapToOutput HEAD-1; xsetwacom --set \"16\" MapToOutput HEAD-1; xsetwacom --set \"17\" MapToOutput HEAD-1"
+alias plz="sudo"
+alias please="sudo"
+
+# custom funcs
+# stands for wallpaper, basically
+wp() {
+    feh --bg-scale "$1"
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
