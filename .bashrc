@@ -123,9 +123,10 @@ alias drma='docker rm -fv $(docker ps -qa)'
 alias customscreenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
 alias notes="cd ~/notes/ && nvim"
 alias encode=". /home/oscar/.config/scripts/encode.sh"
-alias settablet="xsetwacom --set \"15\" MapToOutput HEAD-1; xsetwacom --set \"16\" MapToOutput HEAD-1; xsetwacom --set \"17\" MapToOutput HEAD-1"
+alias settablet="xsetwacom --set \"12\" MapToOutput HEAD-1; xsetwacom --set \"13\" MapToOutput HEAD-1; xsetwacom --set \"14\" MapToOutput HEAD-1"
 alias plz="sudo"
 alias please="sudo"
+alias wn="python3 ~/.config/scripts/whatnext.py"
 
 # custom funcs
 # stands for wallpaper, basically

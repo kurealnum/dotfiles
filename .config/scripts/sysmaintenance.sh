@@ -9,8 +9,8 @@
 #  • Requires: pacman‑contrib (paccache), pacdiff, plus the detected AUR helper.
 # ------------------------------------------------------------
 
-set -euo pipefail
-trap 'echo "[!] Aborted by user"; exit 1' INT TERM
+# set -euo pipefail
+# trap 'echo "[!] Aborted by user"; exit 1' INT TERM
 
 # ---------- Detect AUR helper ---------------------------------------------
 if command -v paru &>/dev/null; then

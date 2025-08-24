@@ -208,9 +208,9 @@ set $darkgray #1d2021
 
 # Green gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $green $green $darkgray $purple $green
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.focused          $green $green $darkgray $green $green
+client.focused_inactive $darkgray $darkgray $yellow $darkgray $darkgray
+client.unfocused        $darkgray $darkgray $yellow $darkgray $darkgray
 client.urgent           $red $red $white $red $red
 
 # colors (from catpuccin mocha)
