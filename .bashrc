@@ -127,12 +127,53 @@ alias settablet="xsetwacom --set \"12\" MapToOutput HEAD-1; xsetwacom --set \"13
 alias plz="sudo"
 alias please="sudo"
 alias wn="python3 ~/.config/scripts/whatnext.py"
+alias nc="cd Code/work/nightcrawler"
 
-# custom funcs
 # stands for wallpaper, basically
 wp() {
     feh --bg-scale "$1"
 }
+
+# Git stuff
+# Create a new worktree (courtesy of Gemini)
+nwt() {
+    if [ -z "$1" ]; then
+        echo "Usage: nwt <branch-name>"
+        return 1
+    fi
+
+    # sanitize path
+    local folder_name="${1//\//-}"
+
+    git fetch
+    git worktree add "../$folder_name" "$1"
+    cd "../$folder_name" || return
+}
+
+# Remove a worktree (courtesy of Gemini)
+rmwt() {
+    if [ -z "$1" ]; then
+        echo "Usage: rmwt <branch-name>"
+        return 1
+    fi
+
+    # sanitize path
+    local folder_name="${1//\//-}"
+
+    git worktree remove "../$folder_name"
+}
+
+gfch() {
+    if [ -z "$1" ]; then
+        ehco "Usage: gfch"
+    fi
+
+    git fetch
+    git checkout "$1"
+}
+
+alias gwtp="git worktree prune"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
