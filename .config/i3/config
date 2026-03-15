@@ -35,7 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Start other 2 monitors, set wallpaper, and set main monitor as primary monitor
-exec --no-startup-id xrandr --output DP-4 --mode 1920x1080 --rate 165 && xrandr --output DP-4 --left-of DP-2 && xrandr --output DP-0 --above DP-4 && feh --bg-scale ~/wallpapers/nature2.jpg
+exec --no-startup-id xrandr --output DP-1 --above HDMI-1 && xrandr --output DP-2 --right-of HDMI-1 && feh --bg-scale ~/wallpapers/nature2.jpg
 # # exec --no-startup-id xrandr --output HDMI-1 --left-of DP-2 && xrandr --output DP-1 --above HDMI-1 && feh --bg-scale ~/wallpapers/streetsig.jpg  
 # exec --no-startup-id xrandr --output DP-2 --primary
 
@@ -59,11 +59,18 @@ bindsym $mod+Return exec --no-startup-id kitty
 # kill focused window
 bindsym $mod+Shift+v kill
 
+# disable screen turning off
+exec_always --no-startup-id xset s 0 0
+
 # start rofi
-bindsym $mod+d exec --no-startup-id rofi -show drun -font 'Hack 11'
+bindsym $mod+d exec --no-startup-id rofi -show drun -font 'Hack 20'
 
 # open power menu
 bindsym $mod+m exec ~/.config/i3/scripts/powermenu
+
+# screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # change focus
 bindsym $mod+h focus left
@@ -285,7 +292,7 @@ gaps inner 6
 
 # bar (completely yoinked from https://github.com/jifuwater/Cattendeavour/blob/main/i3/config)
 bar {
-	font pango: FiraCode Nerd Font medium 13
+	font pango: FiraCode Nerd Font medium 10
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position bottom
     i3bar_command i3bar --transparency

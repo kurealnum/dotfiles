@@ -134,6 +134,94 @@ wp() {
     feh --bg-scale "$1"
 }
 
+# Git stuff
+# Create a new worktree (courtesy of Gemini)
+nwt() {
+    if [ -z "$1" ]; then
+        echo "Usage: nwt <branch-name>"
+        return 1
+    fi
+
+    # sanitize path
+    local folder_name="${1//\//-}"
+
+    git fetch
+    git worktree add "../$folder_name" "$1"
+    cd "../$folder_name" || return
+}
+
+# Remove a worktree (courtesy of Gemini)
+rmwt() {
+    if [ -z "$1" ]; then
+        echo "Usage: rmwt <branch-name>"
+        return 1
+    fi
+
+    # sanitize path
+    local folder_name="${1//\//-}"
+
+    git worktree remove "../$folder_name"
+}
+
+gfch() {
+    if [ -z "$1" ]; then
+        ehco "Usage: gfch"
+    fi
+
+    git fetch
+    git checkout "$1"
+}
+
+setup() {
+    local which="$1"
+    local branch_name="$2"
+
+     if [[ "$which" == "nightcrawler" ]]; then
+         setup-nightcrawler $branch_name
+     else
+         echo "Usage: setup <repo> <pre-created-branch>"
+     fi
+}
+
+# courtesy of Gemini
+# note to self: this doesn't make a branch
+setup-nightcrawler() {
+    local branch_name="$1"
+    
+    if [[ -z "$branch_name" ]]; then
+        echo "Error: Please provide a branch name."
+        return 1
+    fi
+
+    local folder_name="${branch_name//\//-}"
+    local repo_path="$HOME/Code/work/nightcrawler"
+    local worktree_path="$HOME/Code/work/nightcrawler-worktrees/$folder_name"
+
+    echo "Creating worktree for branch '$branch_name' at $worktree_path..."
+    git -C "$repo_path" worktree add "$worktree_path" "$branch_name"
+
+    if [[ ! -f "$worktree_path/frontend/.env" ]]; then
+        cp ~/Code/work/nightcrawler-worktrees/.shared-env "$worktree_path"/frontend/.env
+    fi
+
+    if [[ -d "$worktree_path" ]]; then
+        kitty @ launch --type=os-window --window-title "codex @ $branch_name" --cwd="$worktree_path" --hold codex
+        
+        kitty @ launch --type=tab --tab-title "dev" --cwd="$worktree_path" --hold nvim
+        
+        kitty @ launch --type=tab --tab-title "bun run dev" --cwd="$worktree_path/frontend" --hold bun i && bun run dev
+
+        kitty @ launch --type=tab --tab-title "commands" --cwd="$worktree_path/frontend" --hold  
+
+        exit
+    else
+        echo "Error: Worktree directory was not created."
+        return 1
+    fi
+}
+
+alias gwtp="git worktree prune"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -151,3 +239,9 @@ alias config='/usr/bin/git --git-dir=/home/oscar/.cfg/ --work-tree=/home/oscar'
 
 export STARSHIP_CONFIG=~/.config/starship.toml
 eval "$(starship init bash)"
+
+PATH="/home/oscar/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/oscar/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/oscar/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/oscar/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/oscar/perl5"; export PERL_MM_OPT;
