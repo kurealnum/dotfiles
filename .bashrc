@@ -127,8 +127,8 @@ alias settablet="xsetwacom --set \"12\" MapToOutput HEAD-1; xsetwacom --set \"13
 alias plz="sudo"
 alias please="sudo"
 alias wn="python3 ~/.config/scripts/whatnext.py"
+alias nc="cd Code/work/nightcrawler"
 
-# custom funcs
 # stands for wallpaper, basically
 wp() {
     feh --bg-scale "$1"
@@ -172,6 +172,7 @@ gfch() {
     git checkout "$1"
 }
 
+<<<<<<< HEAD
 setup() {
     local which="$1"
     local branch_name="$2"
@@ -221,6 +222,7 @@ setup-nightcrawler() {
 }
 
 alias gwtp="git worktree prune"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
