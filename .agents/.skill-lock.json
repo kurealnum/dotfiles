@@ -1,0 +1,168 @@
+{
+  "version": 3,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-03-28T16:16:11.751Z",
+      "updatedAt": "2026-03-28T16:16:11.751Z"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills.git",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "skillFolderHash": "363d92283cd9566761d8ec18d4fa9def5cbc2c29",
+      "pluginName": "marketing-skills",
+      "installedAt": "2026-03-28T16:17:54.176Z",
+      "updatedAt": "2026-03-28T16:17:54.176Z"
+    },
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/shadcn/ui.git",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "skillFolderHash": "bf9e83da91320f445f2c27f65067009f344f757a",
+      "installedAt": "2026-03-28T16:18:26.081Z",
+      "updatedAt": "2026-03-28T16:18:26.081Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
+      "pluginName": "example-skills",
+      "installedAt": "2026-03-28T16:21:18.653Z",
+      "updatedAt": "2026-03-28T16:21:18.653Z"
+    },
+    "twitter-algorithm-optimizer": {
+      "source": "ComposioHQ/awesome-claude-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/ComposioHQ/awesome-claude-skills.git",
+      "skillPath": "twitter-algorithm-optimizer/SKILL.md",
+      "skillFolderHash": "6dfbdb6dc6fb56f919a7e708adb62349909c8dbf",
+      "installedAt": "2026-03-28T16:22:49.460Z",
+      "updatedAt": "2026-03-28T16:22:49.460Z"
+    },
+    "coding-standards": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/coding-standards/SKILL.md",
+      "skillFolderHash": "b92eb9d4535f8f6d52f3d60ca28a84f4664274bb",
+      "installedAt": "2026-03-28T16:24:39.874Z",
+      "updatedAt": "2026-03-28T16:24:39.874Z"
+    },
+    "django-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/django-patterns/SKILL.md",
+      "skillFolderHash": "d48dfdc4c50a5097b19d17476fcd3920d862e53b",
+      "installedAt": "2026-03-28T16:24:40.245Z",
+      "updatedAt": "2026-03-28T16:24:40.245Z"
+    },
+    "continuous-learning-v2": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/continuous-learning-v2/SKILL.md",
+      "skillFolderHash": "9fdf0f6cb53ef02e33622389576f6632b6819c18",
+      "installedAt": "2026-03-28T16:24:40.655Z",
+      "updatedAt": "2026-03-28T16:24:40.655Z"
+    },
+    "frontend-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/frontend-patterns/SKILL.md",
+      "skillFolderHash": "ee2c892c1e63600b1f84e78da2584497744c18ff",
+      "installedAt": "2026-03-28T16:24:41.165Z",
+      "updatedAt": "2026-03-28T16:24:41.165Z"
+    },
+    "nextjs-turbopack": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/nextjs-turbopack/SKILL.md",
+      "skillFolderHash": "af649f890318433d8d76829bf117f468c49b46f4",
+      "installedAt": "2026-03-28T16:24:41.572Z",
+      "updatedAt": "2026-03-28T16:24:41.572Z"
+    },
+    "python-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/python-patterns/SKILL.md",
+      "skillFolderHash": "ba415629aa3926cd18f1def2d2a17d9041d8cf05",
+      "installedAt": "2026-03-28T16:24:41.894Z",
+      "updatedAt": "2026-03-28T16:24:41.894Z"
+    },
+    "rust-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/rust-patterns/SKILL.md",
+      "skillFolderHash": "67044ddf6e68f4ff15544bc061b31c93ac16cdba",
+      "installedAt": "2026-03-28T16:24:42.342Z",
+      "updatedAt": "2026-03-28T16:24:42.342Z"
+    },
+    "rust-testing": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/rust-testing/SKILL.md",
+      "skillFolderHash": "d1a20de880fd1146afd6f895c26e3a2fee9b445e",
+      "installedAt": "2026-03-28T16:24:42.659Z",
+      "updatedAt": "2026-03-28T16:24:42.659Z"
+    },
+    "db-migrations": {
+      "source": "lobehub/lobehub",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/lobehub/lobehub.git",
+      "skillPath": ".agents/skills/db-migrations/SKILL.md",
+      "skillFolderHash": "8d48f631725a4483b5efc34408d147809186612e",
+      "installedAt": "2026-03-28T16:28:28.305Z",
+      "updatedAt": "2026-03-28T16:28:28.305Z"
+    },
+    "drizzle": {
+      "source": "lobehub/lobehub",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/lobehub/lobehub.git",
+      "skillPath": ".agents/skills/drizzle/SKILL.md",
+      "skillFolderHash": "dadfa0ad9140338bb31219f95cc812131cbec525",
+      "installedAt": "2026-03-28T16:28:28.849Z",
+      "updatedAt": "2026-03-28T16:28:28.849Z"
+    },
+    "modal": {
+      "source": "lobehub/lobehub",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/lobehub/lobehub.git",
+      "skillPath": ".agents/skills/modal/SKILL.md",
+      "skillFolderHash": "4166b47d7dcc5727fa98ad4b7c015509ec50061a",
+      "installedAt": "2026-03-28T16:28:29.485Z",
+      "updatedAt": "2026-03-28T16:28:29.485Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp",
+    "pi"
+  ]
+}

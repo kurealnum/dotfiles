@@ -172,13 +172,14 @@ gfch() {
     git checkout "$1"
 }
 
-<<<<<<< HEAD
 setup() {
     local which="$1"
     local branch_name="$2"
 
      if [[ "$which" == "nightcrawler" ]]; then
          setup-nightcrawler $branch_name
+     elif [[ "$which" == "cg" ]]; then
+         setup-choreographd $branch_name
      else
          echo "Usage: setup <repo> <pre-created-branch>"
      fi
@@ -199,10 +200,13 @@ setup-nightcrawler() {
     local worktree_path="$HOME/Code/work/nightcrawler-worktrees/$folder_name"
 
     echo "Creating worktree for branch '$branch_name' at $worktree_path..."
+    git -C "$repo_path" fetch
     git -C "$repo_path" worktree add "$worktree_path" "$branch_name"
 
     if [[ ! -f "$worktree_path/frontend/.env" ]]; then
-        cp ~/Code/work/nightcrawler-worktrees/.shared-env "$worktree_path"/frontend/.env
+        cp ~/Code/work/nightcrawler-worktrees/.shared-env "$worktree_path"/apps/site/.env
+        # little bit sloppy but it doesn't matter :p
+        cp ~/Code/work/nightcrawler-worktrees/.shared-env "$worktree_path"/packages/db/.env
     fi
 
     if [[ -d "$worktree_path" ]]; then
@@ -210,9 +214,46 @@ setup-nightcrawler() {
         
         kitty @ launch --type=tab --tab-title "dev" --cwd="$worktree_path" --hold nvim
         
-        kitty @ launch --type=tab --tab-title "bun run dev" --cwd="$worktree_path/frontend" --hold bun i && bun run dev
+        kitty @ launch --type=tab --tab-title "bun run dev" --cwd="$worktree_path/apps/site" --hold bun i && bun run dev
 
-        kitty @ launch --type=tab --tab-title "commands" --cwd="$worktree_path/frontend" --hold  
+        kitty @ launch --type=tab --tab-title "commands" --cwd="$worktree_path/apps/site" --hold  
+
+        exit
+    else
+        echo "Error: Worktree directory was not created."
+        return 1
+    fi
+}
+
+# note to self: this doesn't make a branch
+setup-choreographd() {
+    local branch_name="$1"
+    
+    if [[ -z "$branch_name" ]]; then
+        echo "Error: Please provide a branch name."
+        return 1
+    fi
+
+    local folder_name="${branch_name//\//-}"
+    local repo_path="$HOME/Code/general-projects/choreographd"
+    local worktree_path="$HOME/Code/general-projects/choreographd-worktrees/$folder_name"
+
+    echo "Creating worktree for branch '$branch_name' at $worktree_path..."
+    git -C "$repo_path" fetch
+    git -C "$repo_path" worktree add "$worktree_path" "$branch_name"
+
+    if [[ ! -f "$worktree_path/.env" ]]; then
+        cp ~/Code/general-projects/choreographd/.shared-env "$worktree_path"/.env
+    fi
+
+    if [[ -d "$worktree_path" ]]; then
+        kitty @ launch --type=os-window --window-title "ai @ $branch_name" --cwd="$worktree_path" --hold pi 
+        
+        kitty @ launch --type=tab --tab-title "nvim" --cwd="$worktree_path" --hold nvim
+        
+        kitty @ launch --type=tab --tab-title "live" --cwd="$worktree_path" --hold bun i && bun run dev
+
+        kitty @ launch --type=tab --tab-title "cmds" --cwd="$worktree_path" --hold  
 
         exit
     else
@@ -223,6 +264,8 @@ setup-nightcrawler() {
 
 alias gwtp="git worktree prune"
 
+# for pi
+export EDITOR="nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
