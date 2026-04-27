@@ -3,15 +3,6 @@ markup=pango
 separator_block_width=15
 color=#ebdbb2
 
-[weather]
-command=~/.config/i3/scripts/weather.sh
-interval=1800
-color=#8ec07c
-
-[separator]
-full_text=⟨
-color=#a89984
-
 [cpu_usage]
 label= 
 command=~/.config/i3/scripts/miei/cpu.sh

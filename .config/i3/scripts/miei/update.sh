@@ -5,7 +5,6 @@ if [ $BLOCK_BUTTON -eq "1" ];then
 	kitty -e flatpak update
 fi
 
-
 numero=$(dnf check-update| grep -Ec ' updates$')
 if [ $numero -eq "0" ];then
 echo " "

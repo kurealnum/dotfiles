@@ -1,7 +1,4 @@
-/*******************************************************
- * ROFI configs i3 Apps menu for EndeavourOS
- * Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
- *******************************************************/
+
 configuration {
     font:                "FiraCode Nerd Font medium 10";
     show-icons:          true;

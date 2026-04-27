@@ -1,5 +1,4 @@
 #!/bin/bash
-# Displays the default device, volume, and mute status for i3blocks
 
 set -a
 
@@ -18,7 +17,6 @@ AUDIO_DELTA=${AUDIO_DELTA:-5}
 DEFAULT_COLOR=${DEFAULT_COLOR:-"#ebdbb2"}
 MUTED_COLOR=${MUTED_COLOR:-"#a0a0a0"}
 
-# modified the long format
 LONG_FORMAT=${LONG_FORMAT:-'${SYMB} ${VOL}%'}
 SHORT_FORMAT=${SHORT_FORMAT:-'${SYMB} ${VOL}% [${INDEX}]'}
 USE_ALSA_NAME=${USE_ALSA_NAME:-0}
@@ -85,7 +83,6 @@ if [[ -z "$SCONTROL" ]] ; then
 fi
 
 CAPABILITY=$(amixer -D $MIXER get $SCONTROL | sed -n "s/  Capabilities:.*cvolume.*/Capture/p")
-
 
 function move_sinks_to_new_default {
     DEFAULT_SINK=$1

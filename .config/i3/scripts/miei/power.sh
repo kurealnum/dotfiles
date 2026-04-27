@@ -1,24 +1,4 @@
 #!/usr/bin/env bash
-#  batterybar; displays battery percentage as a bar on i3blocks
-#  
-#  Copyright 2015 Keftaa <adnan.37h@gmail.com>
-#  
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-#  
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#  
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#  
-#  
 readarray -t output <<< $(acpi battery)
 battery_count=${#output[@]}
 
@@ -36,15 +16,12 @@ done
 
 squares="■"
 
-#There are 8 colors that reflect the current battery percentage when 
-#discharging
 dis_colors=("${C1:-#FF0027}" "${C2:-#FF3B05}" "${C3:-#FFB923}" 
             "${C4:-#FFD000}" "${C5:-#E4FF00}" "${C6:-#ADFF00}"
 			"${C7:-#6DFF00}" "${C8:-#10BA00}") 
 charging_color="${CHARGING_COLOR:-#00AFE3}"
 full_color="${FULL_COLOR:-#FFFFFF}"
 ac_color="${AC_COLOR:-#535353}"
-
 
 while getopts 1:2:3:4:5:6:7:8:c:f:a:h opt; do
     case "$opt" in
@@ -123,7 +100,6 @@ do
     ;;
     esac
 
-    # Print Battery number if there is more than one
     if (( $end > 0 )) ; then 
         message="$message $(($i + 1)):" 
     fi

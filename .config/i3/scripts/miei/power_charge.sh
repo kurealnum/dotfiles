@@ -1,8 +1,4 @@
 #!/usr/bin/bash
-#echo " 󰣐 󰣐 󰣐 󰣐 󰋔 "
-#echo ""
-#echo "#a6e3a1"
-#  󰁹󱐋
 
 level=$( upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage | grep -o "[0-9]*")
 

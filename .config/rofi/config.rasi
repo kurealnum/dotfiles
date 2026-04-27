@@ -1,7 +1,4 @@
-/*******************************************************
- * ROFI configs i3 Apps menu for EndeavourOS
- * Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
- *******************************************************/
+
 configuration {
     show-icons:          true;
     icon-theme:          "Qogir";

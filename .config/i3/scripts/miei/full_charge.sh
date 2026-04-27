@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-# quando lo clicco mi ricarica il dispositivo fino al 100% e poi disabilita la feature
 path="/sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/conservation_mode"
 value=$(cat $path)
 if [ $value -eq "" ];then
@@ -14,7 +13,6 @@ if [ $BLOCK_BUTTON -eq 1 ] && [ $value -eq "1" ];then
 	echo $PASSW | sudo -S sh -c "echo 0 > $path"
 fi
 
-
 if [ $level -ge "95" ] && [ $value -eq "0" ];then
 	echo "󱈑 Csv"
 	echo $PASSW | sudo -S sh -c "echo 1 > $path"
@@ -25,5 +23,4 @@ if [ $value -eq 0 ];then
 else
 	echo "󱈑 Csv"
 fi
-
 

@@ -1,58 +1,18 @@
 #!/usr/bin/env bash
-#
-# Use rofi/zenity to change system runstate thanks to systemd.
-#
-# Note: this currently relies on associative array support in the shell.
-#
-# Inspired from i3pystatus wiki:
-# https://github.com/enkore/i3pystatus/wiki/Shutdown-Menu
-#
-# Copyright 2015 Benjamin Chrétien <chretien at lirmm dot fr>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-# modified to work with latest rofi update by joekamprad <joekamprad@endeavouros.com>
-
-#######################################################################
-#                            BEGIN CONFIG                             #
-#######################################################################
-
-# Use a custom lock script
-#LOCKSCRIPT="i3lock-extra -m pixelize"
-
-# Colors: FG (foreground), BG (background), HL (highlighted)
 FG_COLOR="#bbbbbb"
 BG_COLOR="#111111"
 HLFG_COLOR="#111111"
 HLBG_COLOR="#bbbbbb"
 BORDER_COLOR="#222222"
 
-# Options not related to colors (most rofi options do not work anymore)
 ROFI_OPTIONS=(-theme ~/.config/rofi/config.rasi -font 'Hack 20')
-# Zenity options
 ZENITY_TITLE="Power Menu"
 ZENITY_TEXT="Action:"
 ZENITY_OPTIONS=(--column= --hide-header)
 
-#######################################################################
-#                             END CONFIG                              #
-#######################################################################
-
-# Whether to ask for user's confirmation
 enable_confirmation=false
 
-# Preferred launcher if both are available
 preferred_launcher="rofi"
 
 usage="$(basename "$0") [-h] [-c] [-p name] -- display a menu for shutdown, reboot, lock etc.
@@ -67,22 +27,18 @@ This script depends on:
   - i3,
   - rofi or zenity."
 
-# Check whether the user-defined launcher is valid
 launcher_list=(rofi zenity)
 function check_launcher() {
   if [[ ! "${launcher_list[@]}" =~ (^|[[:space:]])"$1"($|[[:space:]]) ]]; then
     echo "Supported launchers: ${launcher_list[*]}"
     exit 1
   else
-    # Get array with unique elements and preferred launcher first
-    # Note: uniq expects a sorted list, so we cannot use it
     i=1
     launcher_list=($(for l in "$1" "${launcher_list[@]}"; do printf "%i %s\n" "$i" "$l"; let i+=1; done \
       | sort -uk2 | sort -nk1 | cut -d' ' -f2- | tr '\n' ' '))
   fi
 }
 
-# Parse CLI arguments
 while getopts "hcp:" option; do
   case "${option}" in
     h) echo "${usage}"
@@ -98,20 +54,15 @@ while getopts "hcp:" option; do
   esac
 done
 
-# Check whether a command exists
 function command_exists() {
   command -v "$1" &> /dev/null 2>&1
 }
 
-# systemctl required
 if ! command_exists systemctl ; then
   exit 1
 fi
 
-# menu defined as an associative array
 typeset -A menu
-
-# Menu with keys/commands
 
 menu=(
   [󰐥  Shutdown]="systemctl poweroff"
@@ -122,7 +73,6 @@ menu=(
 
 menu_nrows=${#menu[@]}
 
-# Menu entries that may trigger a confirmation message
 menu_confirm="Shutdown Reboot Hibernate Suspend Halt Logout"
 
 launcher_exe=""
@@ -150,7 +100,6 @@ for l in "${launcher_list[@]}"; do
   fi
 done
 
-# No launcher available
 if [[ -z "${launcher_exe}" ]]; then
   exit 1
 fi

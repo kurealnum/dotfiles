@@ -7,7 +7,6 @@ cambia_var () {
 if [ $a == 0 ]; then
 	sed -i '2d' $path 
 	sed -i '2ia=1' $path
-	# se non mostri la variabile subito ci sarà il delay di interval
 	a=1 
 	return 1
 fi

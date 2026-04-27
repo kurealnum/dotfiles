@@ -27,8 +27,4 @@ if [ $a == 0 ]; then
 echo "  Eco"                                                                                     
 powerprofilesctl set power-saver 
 fi                                                                                                     
-   
-                                                                        
-          
-
 

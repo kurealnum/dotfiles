@@ -101,7 +101,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1.5 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1.0 && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ toggle
@@ -130,22 +130,6 @@ client.urgent           $red $red $white $red $red
 default_border pixel 2
 gaps outer 3
 gaps inner 6
-
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="About"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable
-for_window [class="Qt5ct"] floating enable
-for_window [class="flameshot"] floating enable
-for_window [class="Nvidia-settings"] floating enable
-
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
-focus_follows_mouse no
-
-workspace_auto_back_and_forth yes
 
 bar {
     font pango:FiraCode Nerd Font 12, DejaVu Sans Mono 12

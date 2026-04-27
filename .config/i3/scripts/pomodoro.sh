@@ -13,18 +13,9 @@ case $BLOCK_BUTTON in
 		
 		;;
 esac
-
-	
 	
 if [ $pluto -eq "0" ];then
 
-# Config variables
-# 40min = 2400s
-# 25min = 1500s
-# 20min = 1200s
-# 5min = 300s
-
-# In secondi
 work_time=2400
 break_time=1200
 
@@ -32,8 +23,6 @@ msg_start=" Pom"
 work_prefix=" "
 break_prefix="󰅶 "
 
-#start_color="#b39df3"
-#start_color="#E06C75"
 start_color="#cdd6f4"
 
 break_color="#a6e3a1"
@@ -116,10 +105,8 @@ case $BLOCK_BUTTON in
 		fi
 	;;
 esac
-# è scritto in modo carino ma non ha sostanziali differenze rispetto al mio , per aggiornarsi sfrutta l'interval integrato. Inoltre è vincolato dalla stampa dell'orario effettivo che non gli permette di andare fuori dal taiming e rimanere sempre in orario. Dovrei evitare la funzione di chiamata e quella di sleep ed optare per un intervallo dentro il blocco. L'aggiornamento nel primo caso non cambia nulla nel secondo mostra secondi differenti ma si può fare.
 
 fi
-
 
 if [ $pluto -eq "1" ];then
 ~/.config/i3/scripts/miei/timer.sh
@@ -128,5 +115,4 @@ fi
 else
 	echo "0" > /tmp/pomo_timer
 fi
-
 
